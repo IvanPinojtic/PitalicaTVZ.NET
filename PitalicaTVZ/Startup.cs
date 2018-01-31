@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using PitalicaTVZ.Data;
 using PitalicaTVZ.Models;
 using PitalicaTVZ.Services;
+using Newtonsoft.Json;
+using DALPitalicaTVZ.Entities;
 
 namespace PitalicaTVZ
 {
@@ -27,7 +29,7 @@ namespace PitalicaTVZ
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("pitalicaDatabase")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -37,6 +39,12 @@ namespace PitalicaTVZ
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+
+            services.AddDbContext<_Context>(options => options.UseSqlServer(Configuration.GetConnectionString("pitalicaDatabase")));
+
+            services.AddMvc().AddJsonOptions(options => {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
