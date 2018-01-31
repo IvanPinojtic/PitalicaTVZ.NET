@@ -10,6 +10,11 @@ namespace DALPitalicaTVZ.Entities
     {
         [Key]
         public int Id { get; set; }
+        public string QuestionText { get; set; }
+        public string CorrectAnswer { get; set; }
+        public string WrongAnswers { get; set; }
+        public int Score { get; set; }
+
         [ForeignKey("Exam")]
         public int ExamId { get; set; }
         public int Row { get; set; }
@@ -17,6 +22,5 @@ namespace DALPitalicaTVZ.Entities
         public Boolean Visibility { get; set; }
 
         public virtual Exam Exam { get; set; }
-        public virtual ICollection<Answer> Answers { get; set; }
     }
 }

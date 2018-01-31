@@ -6,17 +6,20 @@ using System.Text;
 
 namespace DALPitalicaTVZ.Entities
 {
-    public class Answer
+    public class QuestionResult
     {
         [Key]
         public int Id { get; set; }
+        public int Score { get; set; }
+        public int Answered { get; set; }
+        public int CorrectAnswer { get; set; }
+
         [ForeignKey("Question")]
         public int QuestionId { get; set; }
-        public int Row { get; set; }
-        public int Score { get; set; }
-        public string Definition { get; set; }
-        public Boolean Type { get; set; }
+        [ForeignKey("User")]
+        public int UserId { get; set; }
 
+        public virtual User User { get; set; }
         public virtual Question Question { get; set; }
     }
 }

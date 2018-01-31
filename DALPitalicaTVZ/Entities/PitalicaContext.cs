@@ -7,11 +7,11 @@ namespace DALPitalicaTVZ.Entities
 {
     public class PitalicaContext : DbContext
     {
-        public virtual DbSet<Answer> Answers { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Exam> Exams { get; set; }
-        public virtual DbSet<ExamResult> ExamResults { get; set; }
+        public virtual DbSet<QuestionResult> QuestionResults { get; set; }
         public virtual DbSet<User> Users { get; set; }
+
 
         public PitalicaContext(DbContextOptions<PitalicaContext> options)
         : base(options)
@@ -19,5 +19,11 @@ namespace DALPitalicaTVZ.Entities
 
         public PitalicaContext()
         { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserExamTaken>()
+            .HasKey(t => new { t.UserId, t.ExamId });
+        }
     }
 }

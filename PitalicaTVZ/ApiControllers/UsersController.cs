@@ -49,6 +49,11 @@ namespace PitalicaTVZ.ApiControllers
             if (userExists == null)
                 return NotFound();
 
+            var ccc = _context.Exams.Include(e => e.Students).Include(e => e.Questions).ToList();
+            var questions = userExists.ExamsCreated.First().Questions;
+            var resultsQId = userExists.ExamsTaken.First().Exam.Questions.First().Id;
+            var results = _context.QuestionResults.Where(q => q.QuestionId.Equals(resultsQId) && q.UserId.Equals(userExists.Id)).ToList();
+
             return Ok(userExists.Id);
         }
 

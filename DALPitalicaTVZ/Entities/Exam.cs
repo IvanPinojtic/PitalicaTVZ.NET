@@ -12,12 +12,10 @@ namespace DALPitalicaTVZ.Entities
         public int Id { get; set; }
         [ForeignKey("User")]
         public int CreatorId { get; set; }
-        public string ExamName { get; set; }
-        public int MaxScore { get; set; }
-        public DateTime WriteDate { get; set; } = DateTime.Now;
+        public string ExamTitle { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User Creator { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
-        public virtual ICollection<ExamResult> TestResults { get; set; }
+        public virtual ICollection<UserExamTaken> Students { get; set; }
     }
 }
