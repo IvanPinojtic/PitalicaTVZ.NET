@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PitalicaTVZ.Models;
+using DALPitalicaTVZ.Entities;
 
 namespace PitalicaTVZ.Data
 {
@@ -22,5 +23,9 @@ namespace PitalicaTVZ.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+        public DbSet<PitalicaTVZ.Models.ApplicationUser> ApplicationUser { get; set; }
+
+        public DbSet<DALPitalicaTVZ.Entities.User> User { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DALPitalicaTVZ.Entities
 {
-    public class TestResult
+    public class ExamResult
     {
         [Key]
         public int Id { get; set; }
@@ -16,6 +16,6 @@ namespace DALPitalicaTVZ.Entities
         public int Score { get; set; }
         public DateTime WriteDate { get; set; } = DateTime.Now;
 
-        public virtual Test Test { get; set; }
+        public virtual Exam Test { get; set; }
     }
 }

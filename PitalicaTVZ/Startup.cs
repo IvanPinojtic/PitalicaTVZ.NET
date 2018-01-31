@@ -28,9 +28,6 @@ namespace PitalicaTVZ
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("pitalicaDatabase")));
-
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -40,7 +37,8 @@ namespace PitalicaTVZ
 
             services.AddMvc();
 
-            services.AddDbContext<_Context>(options => options.UseSqlServer(Configuration.GetConnectionString("pitalicaDatabase")));
+            services.AddDbContext<PitalicaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PitalicaConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().AddJsonOptions(options => {
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;

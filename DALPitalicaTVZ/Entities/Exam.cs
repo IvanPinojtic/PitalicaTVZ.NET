@@ -6,18 +6,18 @@ using System.Text;
 
 namespace DALPitalicaTVZ.Entities
 {
-    public class Test
+    public class Exam
     {
         [Key]
         public int Id { get; set; }
         [ForeignKey("User")]
         public int CreatorId { get; set; }
-        public string TestName { get; set; }
+        public string ExamName { get; set; }
         public int MaxScore { get; set; }
         public DateTime WriteDate { get; set; } = DateTime.Now;
 
         public virtual User User { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
-        public virtual ICollection<TestResult> TestResults { get; set; }
+        public virtual ICollection<ExamResult> TestResults { get; set; }
     }
 }

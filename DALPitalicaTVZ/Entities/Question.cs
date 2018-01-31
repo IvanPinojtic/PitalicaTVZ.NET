@@ -10,13 +10,13 @@ namespace DALPitalicaTVZ.Entities
     {
         [Key]
         public int Id { get; set; }
-        [ForeignKey("Test")]
-        public int TestId { get; set; }
+        [ForeignKey("Exam")]
+        public int ExamId { get; set; }
         public int Row { get; set; }
         public string Definition { get; set; }
         public Boolean Visibility { get; set; }
 
-        public virtual Test Test { get; set; }
+        public virtual Exam Exam { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
     }
 }

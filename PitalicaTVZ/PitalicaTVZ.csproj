@@ -22,8 +22,4 @@
     <ProjectReference Include="..\DALPitalicaTVZ\DALPitalicaTVZ.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ApiControllers\" />
-  </ItemGroup>
-
 </Project>
