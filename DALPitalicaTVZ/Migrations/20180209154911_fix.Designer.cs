@@ -11,9 +11,10 @@ using System;
 namespace DALPitalicaTVZ.Migrations
 {
     [DbContext(typeof(PitalicaContext))]
-    partial class PitalicaContextModelSnapshot : ModelSnapshot
+    [Migration("20180209154911_fix")]
+    partial class fix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

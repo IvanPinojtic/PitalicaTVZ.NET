@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace DALPitalicaTVZ.Entities
 {
     public class UserExamTaken
     {
+        [Key]
+        public int Id { get; set; }
+        [ForeignKey("User")]
         public int UserId { get; set; }
-        public User User { get; set; }
-
+        public virtual User User { get; set; }
+        [ForeignKey("Exam")]
         public int ExamId { get; set; }
-        public Exam Exam { get; set; }
+        public virtual Exam Exam { get; set; }
     }
 }
