@@ -54,7 +54,7 @@ namespace PitalicaTVZ.ApiControllers
             var resultsQId = userExists.ExamsTaken.First().Exam.Questions.First().Id;
             var results = _context.QuestionResults.Where(q => q.QuestionId.Equals(resultsQId) && q.UserId.Equals(userExists.Id)).ToList();*/
 
-            return Ok(userExists.Id);
+            return Ok(userExists);
         }
 
         // GET: api/Users/5
@@ -118,6 +118,14 @@ namespace PitalicaTVZ.ApiControllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            using (var sha256 = SHA256.Create())
+            {
+                // Send a sample text to hash.  
+                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(user.Password));
+                // Get the hashed string.  
+                user.Password = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
             }
 
             _context.Users.Add(user);
