@@ -7,6 +7,9 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\20180131185300_Initial.cs" />
+    <Compile Remove="Migrations\20180210212250_userexamstaken.cs" />
+    <Compile Remove="Migrations\20180210212417_userexamstaken.cs" />
+    <Compile Remove="Migrations\20180210212453_userexamstaken.cs" />
   </ItemGroup>
 
   <ItemGroup>

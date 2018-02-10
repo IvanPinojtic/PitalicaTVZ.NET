@@ -11,6 +11,7 @@ namespace DALPitalicaTVZ.Entities
         public virtual DbSet<Exam> Exams { get; set; }
         public virtual DbSet<QuestionResult> QuestionResults { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserExamTaken> UserExamTaken { get; set; }
 
 
         public PitalicaContext(DbContextOptions<PitalicaContext> options)
