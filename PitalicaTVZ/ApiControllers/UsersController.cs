@@ -30,7 +30,7 @@ namespace PitalicaTVZ.ApiControllers
         }
 
         [HttpPost("TryGetUser")]
-        public async Task<IActionResult> GetUser([FromBody] User user)
+        public async Task<IActionResult> TryGetUser([FromBody] User user)
         {
             var userName = user.FullName;
 
